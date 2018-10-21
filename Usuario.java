@@ -26,8 +26,13 @@ public class Usuario implements Serializable {
         this.listaDeMensagens.add(m);
     }
 
-    public LinkedList<Mensagem> getListaMensagens(){
-        return this.listaDeMensagens;
+    public Mensagem getPrimeiraMensagem(){
+        Mensagem mensagem = this.listaDeMensagens.pop();
+        return mensagem;
+    }
+
+    public int getQuantidadeMensagens() {
+        return this.listaDeMensagens.size();
     }
 
 }

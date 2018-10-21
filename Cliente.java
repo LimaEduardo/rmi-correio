@@ -14,6 +14,7 @@ public class Cliente {
             System.out.println("1 - Cadastrar novo usuário");
             System.out.println("2 - Enviar mensagem para um usuário");
             System.out.println("3 - Recuperar mensagens");
+            System.out.println("4 - Recuperar número de mensagens");
             System.out.println("0 - Sair");
             System.out.println("------------------");
             op = input1.nextInt();
@@ -93,7 +94,18 @@ public class Cliente {
                         System.out.println(response);
                         break;
                     case 3:
-                       // Recuperar mensagem
+                        // Recuperar mensagem
+                        break;
+                    case 4:
+                        // Recuperar o número de mensagens
+                        dados = lerDadosUsuario();
+                        int numeroMensagens = correio.getNMensagens(dados.get(0), dados.get(1));
+                        if(numeroMensagens == -1) {
+                            System.out.println("Falha de autenticacao");
+                        } else {
+                            System.out.println("Número de mensagens: " + numeroMensagens);
+                        }
+                        System.out.println();
                         break;
                     case 0:
                         System.out.println("Fim da execucao");

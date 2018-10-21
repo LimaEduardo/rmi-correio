@@ -62,7 +62,14 @@ public class Servidor implements Correio {
     // retorna o número de mensagens na fila de mensagens dos usuário
     // Exigir autenticação do usuário
     public int getNMensagens (String userName, String senha) {
-        return 0;
+        Usuario usuario = this.getUsuarioPorNome(userName);
+        if(usuario == null) {
+            return -1;
+        }
+        if(!usuario.getSenha().equals(senha)) {
+            return -1;
+        }
+        return usuario.getQuantidadeMensagens();
     }
 
     // Exigir autenticação do usuário (senha do remetente, incluído como atributo da mensagem)
