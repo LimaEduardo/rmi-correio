@@ -12,8 +12,8 @@ public class Servidor implements Correio {
     private ArrayList<Usuario> usuarios;
     // private int porta;
 
-    public Servidor(String endereco) {
-        this.endereco = endereco;
+    public Servidor() {
+        this.endereco = "10.0.0.107";
         this.usuarios = new ArrayList<Usuario>();
         // this.porta = porta;
     }
@@ -90,14 +90,8 @@ public class Servidor implements Correio {
     }
 
     public static void main(String args[]) {
-        if(args.length != 1) {
-            System.out.println("Modo de execucao do programa: ");
-            System.out.println("java Servidor <endereco> <porta>");
-            return;
-        }
         try {
-            System.out.println(args[0]);
-            Servidor servidor = new Servidor(args[0]);
+            Servidor servidor = new Servidor();
             System.setProperty("java.rmi.server.hostname", servidor.endereco);
 
             //Create and export a remote object
