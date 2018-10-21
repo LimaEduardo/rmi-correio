@@ -56,19 +56,22 @@ public class Servidor implements Correio {
     // Recupera a primeira mensagem na lista de mensagens do usuario; a mensagem deve ser removida
     // Exigir autenticação do usuário
     public Mensagem getMensagem (String userName, String senha) {
-        return (new Mensagem("aaaaaaaaaaaaaaaa", "aaaaaa", "aaaaa"));
+        boolean response = this.autenticar(userName,senha);
+        if (response){
+            Usuario usuario = this.getUsuarioPorNome(userName);
+            Mensagem mensagem = usuario.getPrimeiraMensagem();
+            return mensagem;
+        }
+        return null;
     }
 
     // retorna o número de mensagens na fila de mensagens dos usuário
     // Exigir autenticação do usuário
     public int getNMensagens (String userName, String senha) {
+        if(!this.autenticar(userName, senha)) {
+            return -1;
+        }
         Usuario usuario = this.getUsuarioPorNome(userName);
-        if(usuario == null) {
-            return -1;
-        }
-        if(!usuario.getSenha().equals(senha)) {
-            return -1;
-        }
         return usuario.getQuantidadeMensagens();
     }
 

@@ -25,7 +25,7 @@ public class Mensagem implements Serializable {
         String resposta = "DE: " + this.userNameRemetente + " \n" +
         "TÍTULO: " + this.titulo + "\n" +
         "DATA: " + this.data + "\n" +
-        "TEXTO: \n" +this.texto + "\n";
+        "TEXTO: " + this.texto + "\n";
         return resposta;        
     }
 }

@@ -95,6 +95,13 @@ public class Cliente {
                         break;
                     case 3:
                         // Recuperar mensagem
+                        dados = lerDadosUsuario();
+                        Mensagem primeiraMensagem = correio.getMensagem(dados.get(0), dados.get(1));
+                        if (primeiraMensagem == null){
+                            System.out.println("Falha ao recuperar mensagem");
+                            break;
+                        }
+                        System.out.println(primeiraMensagem);
                         break;
                     case 4:
                         // Recuperar o número de mensagens
