@@ -59,6 +59,7 @@ public class Cliente {
     }
     public static void main (String args[]) {
         String host = (args.length < 1) ? null : args[0];
+        System.out.println(host);
         int op = showMenu();
         try {
             Registry registry = LocateRegistry.getRegistry(host); 
@@ -91,14 +92,13 @@ public class Cliente {
                         } else {
                             System.out.println("Falha no envio da mensagem");
                         }
-                        System.out.println(response);
                         break;
                     case 3:
                         // Recuperar mensagem
                         dados = lerDadosUsuario();
                         Mensagem primeiraMensagem = correio.getMensagem(dados.get(0), dados.get(1));
                         if (primeiraMensagem == null){
-                            System.out.println("Falha ao recuperar mensagem");
+                            System.out.println("Não há mensagens para esse usuario e senha");
                             break;
                         }
                         System.out.println(primeiraMensagem);
@@ -112,7 +112,6 @@ public class Cliente {
                         } else {
                             System.out.println("Número de mensagens: " + numeroMensagens);
                         }
-                        System.out.println();
                         break;
                     case 0:
                         System.out.println("Fim da execucao");

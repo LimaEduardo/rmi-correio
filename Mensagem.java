@@ -23,8 +23,8 @@ public class Mensagem implements Serializable {
 
     public String toString(){
         String resposta = "DE: " + this.userNameRemetente + " \n" +
-        "TÍTULO: " + this.titulo + "\n" +
         "DATA: " + this.data + "\n" +
+        "TÍTULO: " + this.titulo + "\n" +
         "TEXTO: " + this.texto + "\n";
         return resposta;        
     }

@@ -13,7 +13,7 @@ public class Servidor implements Correio {
     // private int porta;
 
     public Servidor() {
-        this.endereco = "10.0.0.107";
+        this.endereco = "127.0.0.1";
         this.usuarios = new ArrayList<Usuario>();
         // this.porta = porta;
     }

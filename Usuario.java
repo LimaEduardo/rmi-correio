@@ -27,6 +27,9 @@ public class Usuario implements Serializable {
     }
 
     public Mensagem getPrimeiraMensagem(){
+        if(this.listaDeMensagens.size() == 0) {
+            return null;
+        }
         Mensagem mensagem = this.listaDeMensagens.pop();
         return mensagem;
     }
